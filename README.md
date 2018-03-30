@@ -24,7 +24,9 @@ I want to be able to add the new link with the site's address and a title.
 
 `git clone git@github.com:telgi/boomark-manager-revisited.git`
 
-`bundle install`
+Run `bundle install` to install gem dependencies
+
+Run `rake setup` to create test and development databases
 
 ## How to Use
 

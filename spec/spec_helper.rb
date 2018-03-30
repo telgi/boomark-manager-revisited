@@ -4,7 +4,10 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
 require 'capybara'
 require 'capybara/rspec'
+require 'rake'
 require 'rspec'
+
+Rake.application.load_rakefile
 
 Capybara.app = BookmarkManager
 
@@ -48,7 +51,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    require_relative './test_database_setup'
+    Rake::Task['test_database_setup'].execute
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
