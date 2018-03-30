@@ -22,6 +22,16 @@ I want an application that shows a list of all my links.
 
 `git clone git@github.com:telgi/boomark-manager-revisited.git`
 
+## How to Use
+
+Run `ruby app.rb`
+
+Navigate to `http://localhost:4567`
+
+## How to Run Tests
+
+Run `rspec`
+
 ## Screenshot Example
 
 ![Alt text](assets/images/database_placeholder.jpg?raw=true "Screenshot placeholder image")
