@@ -10,17 +10,21 @@ To test drive connection to a database manually, as oppose to using an ORM, and 
 
 ```
 As a user,
-So that I can have all my important links in one place,
-I want an application that shows a list of all my links.
+So that I can have easy access to all my regularly visited websites,
+I want an application that shows a list of all these links.
 ```
-
-## Domain Model Snapshot
-
 ![Alt text](assets/images/domain_model_first_user_story.JPG)
+```
+As a user,
+So that I can save a new link and easily reference that new link,
+I want to be able to add the new link with the site's address and a title.
+```
 
 ## Installation
 
 `git clone git@github.com:telgi/boomark-manager-revisited.git`
+
+`bundle install`
 
 ## How to Use
 
