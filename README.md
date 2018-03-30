@@ -30,7 +30,9 @@ Navigate to `http://localhost:4567`
 
 ## How to Run Tests
 
-Run `rspec`
+Run `rspec spec/features` for feature tests
+
+Run `rspec` for all tests, including unit tests
 
 ## Screenshot Example
 
