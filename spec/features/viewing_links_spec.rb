@@ -2,8 +2,8 @@ feature 'Viewing Links' do
   scenario 'allows user to view all links' do
     visit '/posts'
 
-    expect(page).to have_content('https://www.reddit.com')
-    expect(page).to have_content('https://www.buzzfeed.com')
-    expect(page).to have_content('www.bbc.co.uk/news')
+    expect(page).to have_content('Reddit')
+    expect(page).to have_content('Buzzfeed')
+    expect(page).to have_content('BBC News')
   end
 end

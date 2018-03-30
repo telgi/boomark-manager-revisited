@@ -6,7 +6,7 @@ require './database_connection_setup'
 class BookmarkManager < Sinatra::Base
   register Sinatra::Flash
 
-  enable :sessions  
+  enable :sessions
 
   get '/posts' do
     @links = Link.all
@@ -14,7 +14,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/posts/create' do
-    flash[:notice] = "You must submit a valid URL" unless Link.create(url: params['url'], title: params['title'])
+    link = Link.create(url: params['url'], title: params['title'])
+    flash[:notice] = "You must submit a valid URL" unless link
     redirect '/posts'
   end
 
