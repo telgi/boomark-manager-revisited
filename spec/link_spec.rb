@@ -17,5 +17,11 @@ describe Link do
 
       expect(Link.all).to include 'https://www.theguardian.com/'
     end
+
+    it 'does not create a new link if the URL is invalid' do
+      Link.create(url: 'ww.fake-news.co', title: 'Fake News')
+
+      expect(Link.all).not_to include 'ww.fake-news.co'
+    end
   end
 end

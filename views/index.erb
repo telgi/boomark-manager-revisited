@@ -1,3 +1,12 @@
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
+
+<h1>Bookmark Manager</h1>
+
 <ul>
   <% @links.each do |link| %>
     <li><%= link %></li>
