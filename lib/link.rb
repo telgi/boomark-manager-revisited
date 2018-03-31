@@ -20,8 +20,17 @@ class Link
     DatabaseConnection.query("INSERT INTO links (id, url, title) VALUES (#{options[:id]}, '#{options[:url]}', '#{options[:title]}')")
   end
 
-  def self.delete(id)
+  def self.destroy(id)
     DatabaseConnection.query("DELETE FROM links WHERE id = #{id}")
+  end
+
+  def self.update(id, options)
+    DatabaseConnection.query("UPDATE links SET url = '#{options[:url]}', title = '#{options[:title]}' WHERE id = '#{id}';")
+  end
+
+  def self.find(id)
+    result = DatabaseConnection.query("SELECT * FROM links WHERE id = #{id}")
+    result.map { |link| Link.new(link['id'], link['url'], link['title']) }.first
   end
 
   private

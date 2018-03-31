@@ -13,8 +13,8 @@ class BookmarkManager < Sinatra::Base
     erb(:index)
   end
 
-  post '/links/create' do
-    link = Link.create(url: params['url'], title: params['title'])
+  post '/links' do
+    link = Link.create(id: params['id'], url: params['url'], title: params['title'])
     flash[:notice] = "You must submit a valid URL" unless link
     redirect '/links'
   end
@@ -23,8 +23,18 @@ class BookmarkManager < Sinatra::Base
     erb(:new)
   end
 
-  post '/links/destroy' do
-    Link.delete(params['id'])
+  post "/links/delete" do
+    Link.destroy(params['id'])
+    redirect '/links'
+  end
+
+  get '/links/:id' do
+    @link = Link.find(params['id'])
+    erb(:edit)
+  end
+
+  post '/links/edit' do
+    Link.update(params['id'], params)
     redirect '/links'
   end
 

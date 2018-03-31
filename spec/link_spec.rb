@@ -30,10 +30,33 @@ describe Link do
 
   describe '.delete' do
     it 'deletes a link' do
-      Link.delete(1)
+      Link.destroy(1)
       links = Link.all
       urls = links.map(&:url)
       expect(urls).not_to include 'https://www.reddit.com'
+    end
+  end
+
+  describe '.update' do
+    it 'updates a link' do
+      Link.update(1, url: 'https://www.breddit.com', title: 'Breddit')
+      links = Link.all
+      urls = links.map(&:url)
+      titles = links.map(&:title)
+
+      expect(urls).not_to include 'https://www.reddit.com'
+      expect(titles).not_to include 'reddit'
+      expect(urls).to include 'https://www.breddit.com'
+      expect(titles).to include 'Breddit'
+    end
+  end
+
+  describe '.find' do
+    it 'finds a link by id' do
+      link = Link.find(1)
+
+      expect(link.url).to eq 'https://www.reddit.com'
+      expect(link.title).to eq 'Reddit'
     end
   end
 end

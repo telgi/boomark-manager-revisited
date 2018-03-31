@@ -1,0 +1,6 @@
+<form action="/links/edit" method="post">
+  <input type="hidden" name="id" value="<%= @link.id %>">
+  <input type="text" name="url" value="<%= @link.url %>">
+  <input type="text" name="title" value="<%= @link.title %>">
+  <input type="submit" value="Update">
+</form>

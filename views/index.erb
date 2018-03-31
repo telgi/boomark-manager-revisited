@@ -13,7 +13,7 @@
       <a href="<%= link.url %>" target="_blank">
         <%= link.title %>
       </a>
-      <form action="/links/destroy" method="post">
+      <form action="/links/delete" method="post">
         <input type="hidden" name="id" value="<%= link.id %>">
         <input type="submit" value="Delete">
       </form>
