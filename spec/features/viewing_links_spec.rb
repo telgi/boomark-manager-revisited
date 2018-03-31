@@ -1,6 +1,6 @@
 feature 'Viewing Links' do
   scenario 'allows user to view all links' do
-    visit '/posts'
+    visit '/links'
 
     expect(page).to have_content('Reddit')
     expect(page).to have_content('Buzzfeed')

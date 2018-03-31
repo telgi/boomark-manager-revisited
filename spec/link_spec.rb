@@ -14,7 +14,7 @@ describe Link do
 
   describe '.create' do
     it 'creates a new link' do
-      Link.create(url: 'https://www.theguardian.com/', title: 'Guardian')
+      Link.create(id: 4, url: 'https://www.theguardian.com/', title: 'Guardian')
       links = Link.all
       urls = links.map(&:url)
       expect(urls).to include 'https://www.theguardian.com/'
@@ -25,6 +25,15 @@ describe Link do
       links = Link.all
       urls = links.map(&:url)
       expect(urls).not_to include 'ww.fake-news.co'
+    end
+  end
+
+  describe '.delete' do
+    it 'deletes a link' do
+      Link.delete(1)
+      links = Link.all
+      urls = links.map(&:url)
+      expect(urls).not_to include 'https://www.reddit.com'
     end
   end
 end
