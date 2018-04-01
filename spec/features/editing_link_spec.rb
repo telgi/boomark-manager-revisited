@@ -1,6 +1,9 @@
 feature 'Edit Link' do
   scenario 'User is able to update a link' do
-    visit '/links/1/edit'
+    visit '/links'
+    within '#link-1' do
+      click_link 'Edit'
+    end
 
     fill_in('url', with: 'https://www.breddit.com')
     fill_in('title', with: 'Breddit')

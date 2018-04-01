@@ -18,6 +18,9 @@
     <li id="link-<%= link.id %>">
       <a href="<%= link.url %>" target="_blank">
         <%= link.title %>
+      </a></br>
+      <a href="links/<%= link.id %>/edit">
+        Edit
       </a>
       <form action="/links/<%= link.id %>/delete" method="post">
         <input type="submit" value="Delete">
