@@ -18,7 +18,7 @@ Run `rake setup` to create test and development databases
 
 Run `ruby app.rb`
 
-Navigate to `http://localhost:4567`
+Navigate to `http://localhost:4567` to launch application from home page.
 
 ## How to Run Tests
 
@@ -52,8 +52,8 @@ I want to be able to update any link in my list.
 
 * The Bookmark Manager displays a list of links the user has added [x]
 * The user can add a new link to their Bookmark Manager [x]
-* The user can delete a link from their Bookmark Manager []
-* The user can update a link in their Bookmark Manager []
+* The user can delete a link from their Bookmark Manager [x]
+* The user can update a link in their Bookmark Manager [x]
 
 ## Screenshot Example
 

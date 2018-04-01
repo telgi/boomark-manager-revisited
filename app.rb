@@ -8,32 +8,36 @@ class BookmarkManager < Sinatra::Base
 
   enable :sessions
 
+  get '/' do
+    redirect '/links'
+  end
+
   get '/links' do
     @links = Link.all
-    erb(:index)
+    erb(:"links/index")
+  end
+
+  get '/links/new' do
+    erb(:"links/new")
   end
 
   post '/links' do
-    link = Link.create(id: params['id'], url: params['url'], title: params['title'])
+    link = Link.create(url: params['url'], title: params['title'])
     flash[:notice] = "You must submit a valid URL" unless link
     redirect '/links'
   end
 
-  get '/links/new' do
-    erb(:new)
-  end
-
-  post "/links/delete" do
+  post "/links/:id/delete" do
     Link.destroy(params['id'])
     redirect '/links'
   end
 
-  get '/links/:id' do
+  get '/links/:id/edit' do
     @link = Link.find(params['id'])
-    erb(:edit)
+    erb(:"links/edit")
   end
 
-  post '/links/edit' do
+  post '/links/:id/update' do
     Link.update(params['id'], params)
     redirect '/links'
   end
