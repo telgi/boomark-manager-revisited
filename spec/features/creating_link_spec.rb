@@ -1,10 +1,13 @@
 feature 'Creating Link' do
   scenario 'User can add a new link' do
-    visit '/links/new'
+    visit '/links'
+    click_link 'New Link'
+
     fill_in('url', with: 'https://www.theguardian.com/')
     fill_in('title', with: 'Guardian')
     click_button('Submit')
 
+    expect(current_path).to eq '/links'
     expect(page).to have_content('Guardian')
   end
 
