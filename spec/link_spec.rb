@@ -14,7 +14,7 @@ describe Link do
 
   describe '.create' do
     it 'creates a new link' do
-      Link.create(id: 4, url: 'https://www.theguardian.com/', title: 'Guardian')
+      Link.create(url: 'https://www.theguardian.com/', title: 'Guardian')
       links = Link.all
       urls = links.map(&:url)
       expect(urls).to include 'https://www.theguardian.com/'
@@ -25,6 +25,11 @@ describe Link do
       links = Link.all
       urls = links.map(&:url)
       expect(urls).not_to include 'ww.fake-news.co'
+    end
+
+    it 'returns the data wrapped in a Link instance' do
+      link = Link.create(url: 'https://gitmoji.carloscuesta.me/')
+      expect(link.url).to eq 'https://gitmoji.carloscuesta.me/'
     end
   end
 
@@ -57,6 +62,14 @@ describe Link do
 
       expect(link.url).to eq 'https://www.reddit.com'
       expect(link.title).to eq 'Reddit'
+    end
+  end
+
+  describe '#comments' do
+    it 'returns all comments with a link_id equal to this link ID' do
+      link = Link.create(url: 'https://gitmoji.carloscuesta.me/', title: 'Gitmoji')
+      comment = Comment.create(text: 'Test comment', link_id: link_id)
+      expect(link.comments.map(&:id)).to include comment.id
     end
   end
 end

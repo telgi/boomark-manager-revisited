@@ -17,7 +17,7 @@ class Link
 
   def self.create(options)
     return false unless is_url?(options[:url])
-    DatabaseConnection.query("INSERT INTO links (id, url, title) VALUES (#{options[:id]}, '#{options[:url]}', '#{options[:title]}')")
+    DatabaseConnection.query("INSERT INTO links (url, title) VALUES ('#{options[:url]}', '#{options[:title]}')")
   end
 
   def self.destroy(id)
