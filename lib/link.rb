@@ -17,7 +17,8 @@ class Link
 
   def self.create(options)
     return false unless is_url?(options[:url])
-    DatabaseConnection.query("INSERT INTO links (url, title) VALUES ('#{options[:url]}', '#{options[:title]}')")
+    result = DatabaseConnection.query("INSERT INTO links (url, title) VALUES ('#{options[:url]}', '#{options[:title]}') RETURNING id, url, title")
+    Link.new(result[0]['id'], result[0]['url'], result[0]['title'])
   end
 
   def self.destroy(id)
@@ -31,6 +32,11 @@ class Link
   def self.find(id)
     result = DatabaseConnection.query("SELECT * FROM links WHERE id = #{id}")
     result.map { |link| Link.new(link['id'], link['url'], link['title']) }.first
+  end
+
+  def comments
+    result = DatabaseConnection.query("SELECT * FROM comments WHERE link_id = #{@id}")
+    result.map { |comment| Comment.new(comment['id'], comment['text']) }
   end
 
   private

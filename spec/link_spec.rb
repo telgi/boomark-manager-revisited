@@ -68,7 +68,7 @@ describe Link do
   describe '#comments' do
     it 'returns all comments with a link_id equal to this link ID' do
       link = Link.create(url: 'https://gitmoji.carloscuesta.me/', title: 'Gitmoji')
-      comment = Comment.create(text: 'Test comment', link_id: link_id)
+      comment = Comment.create(link_id: link.id, text: 'Test comment')
       expect(link.comments.map(&:id)).to include comment.id
     end
   end
