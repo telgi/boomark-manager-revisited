@@ -28,17 +28,19 @@ Run `rspec` for all tests, including unit tests
 
 ## User Stories
 
+### Links
+
 ```
+As a user,
+So that I can save a new link and easily reference that new link,
+I want to be able to add the new link with the site's address and a title.
+
 As a user,
 So that I can have easy access to all my regularly visited websites,
 I want an application that stores a list of all these links.
 ```
 ![Alt text](assets/images/domain_model_mvc.JPG)
 ```
-As a user,
-So that I can save a new link and easily reference that new link,
-I want to be able to add the new link with the site's address and a title.
-
 As a user,
 So that I can get rid of links that I no longer need,
 I want to be able to delete links from my list.
@@ -48,12 +50,26 @@ So that I can edit the details of a link that has changed,
 I want to be able to update any link in my list.
 ```
 
+### Comments
+
+```
+As a user,
+So that I can make useful notes about a particular link,
+I want to be able to add a new comment to an existing link.
+```
+
 ## Features
 
-* The Bookmark Manager displays a list of links the user has added [x]
+### Links
+
 * The user can add a new link to their Bookmark Manager [x]
+* The Bookmark Manager displays a list of links the user has added [x]
 * The user can delete a link from their Bookmark Manager [x]
 * The user can update a link in their Bookmark Manager [x]
+
+### Comments
+
+* The user can add a new comment to an existing link [x]
 
 ## Screenshot Example
 
