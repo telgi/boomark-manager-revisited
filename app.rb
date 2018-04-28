@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/link'
+require './lib/comment'
 require './database_connection_setup'
 
 class BookmarkManager < Sinatra::Base
@@ -39,6 +40,16 @@ class BookmarkManager < Sinatra::Base
 
   post '/links/:id/update' do
     Link.update(params['id'], params)
+    redirect '/links'
+  end
+
+  get '/links/:id/comments/new' do
+    @link = Link.find(params['id'])
+    erb(:"comments/new")
+  end
+
+  post '/links/:id/comments' do
+    comment = Comment.create(link_id: params['id'], text: params['text'])
     redirect '/links'
   end
 

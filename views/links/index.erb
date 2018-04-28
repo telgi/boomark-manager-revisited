@@ -21,10 +21,18 @@
       </a></br>
       <a href="links/<%= link.id %>/edit">
         Edit
+      </a></br>
+      <a href="links/<%= link.id %>/comments/new">
+        Comment
       </a>
       <form action="/links/<%= link.id %>/delete" method="post">
         <input type="submit" value="Delete">
       </form>
+      <ul>
+        <% link.comments.each do |comment| %>
+          <li><%= comment.text %></li>
+        <% end %>
+      </ul>
     </li>
   <% end %>
 </ul>
